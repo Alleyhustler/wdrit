@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Layout</title>
+    <style>
+        /* Global styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black; /* Black background */
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Container to hold all content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Title with YouTube-like effect */
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px red, 4px 4px 10px white;
+            margin-bottom: 20px;
+        }
+
+        /* Video and side image layout */
+        .video-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Video container with side spaces */
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border: 5px solid #fff;
+        }
+
+        /* Play button overlay */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 30px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .play-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Side images */
+        .side-image {
+            width: 100px;
+            height: auto;
+            margin: 0 20px;
+        }
+
+        /* Section below video */
+        .text-image-section {
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .text-content {
+            flex: 1;
+            padding: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .text-image {
+            width: 400px;
+            height: auto;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+        .text-image:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Social media icons in the top right corner */
+        .social-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .social-icons a {
+            margin-left: 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Floating image */
+        .floating-image {
+            position: absolute;
+            width: 300px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Image -->
+    <img src="image-removebg-preview (27).png" class="floating-image" alt="Floating Image">
+
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+        <a href="https://twitter.com" target="_blank">
+            <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="Twitter">
+        </a>
+        <a href="https://telegram.org" target="_blank">
+            <img src="https://telegram.org/favicon.ico" alt="Telegram">
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Title -->
+        <div class="title">WHY DID YOU REDEEM IT</div>
+
+        <!-- Video Section with Side Images -->
+        <div class="video-section">
+            <img src="image-removebg-preview (27).png" class="side-image" alt="Left Image">
+            <div class="video-container">
+                <video id="myVideo" controls>
+                    <source src="Snaptik.app_7256813725175303467.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="playButton" class="play-button">►</div>
+            </div>
+            <img src="image-removebg-preview (27).png" class="side-image" alt="Right Image">
+        </div>
+
+        <!-- Section below the video for text and image -->
+        <div class="text-image-section">
+            <div class="text-content">
+                <p>This YouTube tricks online scammers. A video that reveals the tactics used by scammers.</p>
+                <p>$WDYRI, 1B SUPPLY, 5% DEV, 95% DRIVEN COMMUNITY.</p>
+            </div>
+            <img src="why did you redeem IT !!!.png" class="text-image" alt="Text Section Image">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for the random floating image movement
+        const floatingImage = document.querySelector('.floating-image');
+
+        function moveFloatingImage() {
+            const x = Math.random() * (window.innerWidth - floatingImage.clientWidth);
+            const y = Math.random() * (window.innerHeight - floatingImage.clientHeight);
+
+            floatingImage.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        setInterval(moveFloatingImage, 3000); // Move the image every 3 seconds
+
+        // JavaScript for play button functionality
+        var video = document.getElementById('myVideo');
+        var playButton = document.getElementById('playButton');
+
+        // Play the video when the user clicks the play button
+        playButton.addEventListener('click', function() {
+            video.play();
+            playButton.style.display = 'none'; // Hide the play button
+        });
+    </script>
+
+</body>
+</html>
